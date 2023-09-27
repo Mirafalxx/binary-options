@@ -1,25 +1,21 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Chart from "./components/Chart";
+import PeriodBar from "./components/PeriodBar";
+import SideBar from "./components/SideBar";
+import "./App.scss";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="main">
+      <div className="container">
+        {/* <PeriodBar /> */}
+        <div className="chart-content">
+          <Chart />
+          <SideBar />
+        </div>
+      </div>
+    </main>
   );
-}
+};
 
 export default App;

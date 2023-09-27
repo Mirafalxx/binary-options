@@ -1,0 +1,24 @@
+.container {
+  height: calc(100vh - 36px);
+}
+
+.chart-content {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  height: calc(100% - 38px);
+}
+.element-description {
+  position: absolute;
+  top: -10px;
+  left: 21px;
+  background: white;
+  padding: 0 5px;
+  &.time {
+    width: 40px;
+  }
+  &.investment {
+    width: 80px;
+  }
+}

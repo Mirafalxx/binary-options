@@ -1,0 +1,31 @@
+.period-bar {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 38px;
+  width: 100%;
+  box-sizing: border-box;
+  border: solid 1px #a7a7a7;
+}
+
+.chart__wrapper {
+  width: calc(100% - 250px);
+  height: 100%;
+  margin-left: 0;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 270px;
+  height: 100%;
+  box-sizing: border-box;
+  border: solid 1px #a7a7a7;
+  border-right: 2px solid #a7a7a7; /* Border on the right side */
+  border-bottom: 2px solid #a7a7a7; /* Border on the bottom side */
+  border-left: 2px solid #a7a7a7; /* Border on the left side */
+  border-top: transparent; /* No border on the top */
+  border-radius: 5px;
+  padding: 30px 15px 0;
+}
