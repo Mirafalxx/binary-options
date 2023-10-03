@@ -1,10 +1,10 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { decrement, increment } from "../../store/slices/counterSlice";
+import { decrement, increment } from "../../store/slices/chartSlice";
 import "./style.scss";
 
 const Investment = () => {
-  const count = useSelector((state) => state.counter.value);
+  const count = useSelector((state) => state.chart.value);
   const dispatch = useDispatch();
 
   return (

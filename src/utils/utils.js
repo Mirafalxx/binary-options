@@ -51,3 +51,26 @@ export const adjustFromTo = (period, toTimestamp, count) => {
   }
   return [from, to];
 };
+
+export const formatTime = (seconds) => {
+  if (!seconds) return;
+  const minutes = Math.floor(seconds / 60)
+    .toString()
+    .padStart(2, "0");
+  const remainingSeconds = (seconds % 60).toString().padStart(2, "0");
+  return `${minutes}:${remainingSeconds}`;
+};
+
+export const formatCountdown = (seconds) => {
+  if (seconds < 0) {
+    return "00:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+  const remainingSeconds = seconds % 60;
+
+  const formattedMinutes = String(minutes).padStart(2, "0");
+  const formattedSeconds = String(remainingSeconds).padStart(2, "0");
+
+  return `${formattedMinutes}:${formattedSeconds}`;
+};

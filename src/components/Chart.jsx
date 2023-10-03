@@ -3,6 +3,7 @@ import { init } from "klinecharts";
 import { adjustFromTo } from "../utils/utils";
 import "./style.scss";
 import { data } from "../data";
+import { createRectX } from "./extenstion/rect";
 
 const Chart = (props) => {
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,7 @@ const Chart = (props) => {
     // );
 
     const response = await fetch(
-      `https://api.polygon.io/v2/aggs/ticker/BABA/range/15/minute/1695341280000/1695791280000?apiKey=${apiKey}`
+      `https://api.polygon.io/v2/aggs/ticker/AAPL/range/15/minute/1695341280000/1695791280000?apiKey=${apiKey}`
     );
     const result = await response.json();
     return await (result.results || []).map((data) => ({
@@ -37,6 +38,17 @@ const Chart = (props) => {
     }));
   };
 
+  const createRect = () => {
+    chart.createOverlay({
+      groupId: "drawing_tools",
+      name: "rect",
+      visible: true,
+      lock: false,
+      mode: "normal",
+      color: "green",
+    });
+  };
+
   // useEffect(() => {
   //   getHistoryKLineData();
   // }, []);
@@ -44,6 +56,7 @@ const Chart = (props) => {
   useEffect(() => {
     window.addEventListener("resize", documentResize);
     chart = init(ref.current);
+
     chart.setStyles({
       grid: false,
     });
@@ -76,8 +89,11 @@ const Chart = (props) => {
     chart?.setStyles("dark");
   }, []);
 
-  useEffect(() => {}, []);
-  return <div className="chart__wrapper" ref={ref}></div>;
+  return (
+    <div className="chart__wrapper" ref={ref}>
+      <button onClick={createRect}>CLICK</button>
+    </div>
+  );
 };
 
 export default Chart;
